@@ -1,7 +1,7 @@
 import os
 
-from cs50 import SQL
-from flask import Flask, flash, jsonify, redirect, render_template, request, session
+from cs50 import SQL # type: ignore
+from flask import Flask, flash, jsonify, redirect, render_template, request, session # type: ignore
 
 # Configure application
 app = Flask(__name__)
@@ -51,7 +51,7 @@ def index():
     else:
 
         # TODO: Display the entries in the database on index.html
-        birthdays = db.execute("SELECT * FROM birthdays")
+        birthdays = db.execute("SELECT * FROM birthdays SORT BY month, day")
         return render_template("index.html", birthdays=birthdays)
 
 
