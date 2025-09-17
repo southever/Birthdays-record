@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Birthdays</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>生日记录</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+
+                <h2>添加生日</h2>
+                <!-- TODO: Create a form for users to submit a name, a month, and a day -->
+                <form action='/' method="post">
+                    <input name="name" placeholder="姓名" type="text">
+                    <input name="month" placeholder="月" type="number" min="1" max="12">
+                    <input name="day" placeholder="日" type="number" min="1" max="31">
+                    <input type="submit" value="添加生日">
+                </form>
+            </div>
+
+            <div class="section">
+
+                <h2>删除记录</h2>
+                <form action='/delete' method="post">
+                    <input name="nameToDelete" placeholder="要删除的姓名" type="text">
+                    <input type="submit" value="删除记录">
+                </form>
+            </div>
+
+            <div class="section">
+
+                <h2>所有生日</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>生日</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- TODO: Loop through the database entries to display them in this table -->
+                         {% for birthday in birthdays %}
+                            <tr>
+                                <td>{{birthday.name}}</td>
+                                <td>{{birthday.month}}月{{birthday.day}}日</td>
+                            </tr>
+                         {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
