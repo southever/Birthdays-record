@@ -51,7 +51,7 @@ def index():
     else:
 
         # TODO: Display the entries in the database on index.html
-        birthdays = db.execute("SELECT * FROM birthdays SORT BY month, day")
+        birthdays = db.execute("SELECT * FROM birthdays ORDER BY month, day")
         return render_template("index.html", birthdays=birthdays)
 
 
